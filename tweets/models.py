@@ -14,7 +14,8 @@ class Tweets(models.Model):
 class CommentTweets(models.Model):
     who_comment = models.ForeignKey(
         User, on_delete=models.CASCADE)
-    which_tweet = models.ForeignKey(Tweets, on_delete=models.CASCADE)
+    which_tweet = models.ForeignKey(
+        Tweets, related_name='comment', on_delete=models.CASCADE)
     comment = models.TextField(default='No comment')
     like_tweet = models.BooleanField(default=False)
     dislike_tweet = models.BooleanField(default=False)

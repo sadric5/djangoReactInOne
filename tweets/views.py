@@ -13,6 +13,11 @@ class ListTwests(generics.ListCreateAPIView):
     serializer_class = TweetSerializer
 
 
+class TweetDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Tweets.objects.all()
+    serializer_class = TweetSerializer
+
+
 class ListCommentForSpecifiqueTweet(APIView):
     def get(self, request, pk):
         data = {
