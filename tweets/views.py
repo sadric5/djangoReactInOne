@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework import generics
 from rest_framework.views import APIView
-from .models import Tweets, CommentTweets
-from .serializers import TweetSerializer, CommentSerializer
+from .models import Tweets, CommentTweets, TweetsLike
+from .serializers import TweetSerializer, CommentSerializer, LikeSerializer
 from rest_framework.response import Response
 import json
 # Create your views here.
@@ -16,6 +16,26 @@ class ListTwests(generics.ListCreateAPIView):
 class TweetDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Tweets.objects.all()
     serializer_class = TweetSerializer
+
+
+class ListLike(generics.ListCreateAPIView):
+    queryset = TweetsLike.objects.all()
+    serializer_class = LikeSerializer
+
+
+class LikeDetails(generics.RetrieveUpdateDestroyAPIView):
+    queryset = TweetsLike.objects.all()
+    serializer_class = LikeSerializer
+
+
+class ListCommets(generics.ListCreateAPIView):
+    queryset = CommentTweets.objects.all()
+    serializer_class = CommentSerializer
+
+
+class CommentDetails(generics.RetrieveUpdateDestroyAPIView):
+    queryset = CommentTweets.objects.all()
+    serializer_class = CommentSerializer
 
 
 class ListCommentForSpecifiqueTweet(APIView):
