@@ -16,7 +16,7 @@ class LikeSerializer(serializers.ModelSerializer):
 
 class TweetSerializer(serializers.ModelSerializer):
     comment = CommentSerializer(many=True, read_only=True)
-    like = LikeSerializer(many=True, read_only=True)
+    like = LikeSerializer(read_only=True)
 
     class Meta:
         model = Tweets

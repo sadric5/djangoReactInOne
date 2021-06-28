@@ -18,7 +18,7 @@ class TweetDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = TweetSerializer
 
 
-class ListLike(generics.ListCreateAPIView):
+class ListLike(generics.ListAPIView):
     queryset = TweetsLike.objects.all()
     serializer_class = LikeSerializer
 
@@ -36,25 +36,6 @@ class ListCommets(generics.ListCreateAPIView):
 class CommentDetails(generics.RetrieveUpdateDestroyAPIView):
     queryset = CommentTweets.objects.all()
     serializer_class = CommentSerializer
-
-
-class ListCommentForSpecifiqueTweet(APIView):
-    def get(self, request, pk):
-        data = {
-            'like': 0,
-            'dislike': 0,
-            'comment': []
-        }
-        comment = CommentTweets.objects.filter(which_tweet=pk)
-        serializer = CommentSerializer(comment, many=True).data
-        for item in serializer:
-            data['comment'].append(item['comment'])
-            if item['like_tweet']:
-                data['like'] += 1
-            elif item['dislike_tweet']:
-                data['dislike'] += 1
-
-        return Response(data)
 
 
 class ListComment(generics.ListCreateAPIView):

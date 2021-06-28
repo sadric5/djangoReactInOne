@@ -33,7 +33,7 @@ class CommentTweets(models.Model):
 
 
 class TweetsLike(models.Model):
-    tweet = models.ForeignKey(
+    tweet = models.OneToOneField(
         Tweets, related_name='like', on_delete=models.CASCADE)
     likes = models.IntegerField(default=0, validators=[valide_like])
     dislikes = models.IntegerField(default=0, validators=[valide_like])
