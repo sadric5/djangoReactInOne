@@ -2,10 +2,10 @@
 import React, {useState, useEffect} from 'react'
 import {FaThumbsUp, FaThumbsDown} from 'react-icons/fa'
 import {BsChat, BsFillChatDotsFill} from 'react-icons/bs'
+import Comments from './displayCommet'
 
 const Userview = (props)=>{
-    console.log(props.data)
-    
+
     return (
         <div className='container'>
             {
@@ -21,7 +21,7 @@ const Userview = (props)=>{
                                 <li className='nav-item mx-5'>
                                     <div className='mx-5 text-muted'>
                                         <button className='btn' onClick={()=>props.onClick.handleLikeClick(data.like.id)}>
-                                            <FaThumbsUp color={(props.likecolor.likeColor&&props.returnId===data.like.id)?'blue':''}/>
+                                            <FaThumbsUp color={data.likeColor?'blue':''}/>
                                         </button>
                                         <b className='mx-2 text-primary'>{data.like.likes}</b>
                                         
@@ -37,13 +37,19 @@ const Userview = (props)=>{
                                 <li className='nav-item mx-5'>
                                     <div className='mx-5 text-muted'>
                                     <button className='btn' onClick={()=>props.onClick.handleDislikeClick(data.like.id, true)}>
-                                        <FaThumbsDown color={(props.likecolor.dislikeColor&&props.returnId===data.like.id)?'blue':''}/>
+                                        <FaThumbsDown color={data.dislikeColor?'blue':''}/>
                                     </button>
                                     <b className='mx-2 text-primary'>{data.like.dislikes}</b>
                                     </div>
                                 </li>
 
                             </ul>
+
+                            {/* Comments */}
+                            {}
+                            <div className='text-center'>
+                                <Comments value={data.comment}/>
+                            </div>
                         </div>
                         </div>
                 ))
