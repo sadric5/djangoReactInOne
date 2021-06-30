@@ -38,7 +38,7 @@ function App(props){
             let response = await axios.get(urls)
             setTweets(response.data)
         }catch(er){
-            console.log(er.request.statusText)
+            console.log(er.request.response)
         }
     }
 
@@ -74,7 +74,7 @@ function App(props){
             setDislikeColor(true)
 
         }catch(er){
-            console.log(er)
+            console.log(er.request)
         }
 
     }
