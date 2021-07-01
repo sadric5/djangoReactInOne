@@ -40,12 +40,9 @@ class TweetsLike(models.Model):
     dislikes = models.IntegerField(default=0, validators=[valide_like])
 
 
-# class UsersLike(models.Model):
-#     # tweetLiking =
-#     liker = models.ForeignKey(
-#         User, related_name='likers', on_delete=models.CASCADE)
-
-
-# class UsersDislike(models.Model):
-#     disliker = models.ForeignKey(
-#         User, related_name='dislikers', on_delete=models.CASCADE)
+class UsersLikeDislike(models.Model):
+    liker = models.ForeignKey(
+        User, related_name='likers', on_delete=models.CASCADE)
+    tweetLiking = models.ForeignKey(Tweets, related_name='userappriciation' on_delete=models.CASCADE)
+    like = models.BooleanField(default=False)
+    dislike = models.BooleanField(default=False)
