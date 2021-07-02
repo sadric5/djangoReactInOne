@@ -43,6 +43,7 @@ class TweetsLike(models.Model):
 class UsersLikeDislike(models.Model):
     liker = models.ForeignKey(
         User, related_name='likers', on_delete=models.CASCADE)
-    tweetLiking = models.ForeignKey(Tweets, related_name='userappriciation' on_delete=models.CASCADE)
+    tweetLiking = models.ForeignKey(
+        Tweets, related_name='userappriciation', on_delete=models.CASCADE)
     like = models.BooleanField(default=False)
     dislike = models.BooleanField(default=False)

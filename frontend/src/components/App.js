@@ -1,5 +1,6 @@
 
 import React, {useState, useEffect} from 'react'
+import Cookies from 'js-cookie'
 
 // import ReactDOM, {render} from 'react-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -103,6 +104,7 @@ function App(props){
     return (
 
         <div className='container'>
+           {console.log(Cookies.get())}
             <Userview data={tweets?tweets:data} onClick={{handleLikeClick, handleDislikeClick, handleCommetsClick}} likecolor={{likeColor, dislikeColor}} returnId={returnId}/>
         </div>
         
