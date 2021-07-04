@@ -6,6 +6,7 @@ import Cookies from 'js-cookie'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Userview from './UserView'
 import axios from 'axios'
+import getCookie from './csrfCookis'
 
 
 
@@ -27,6 +28,7 @@ function App(props){
 
     const [urlsForTweets, setUrlsForTweets] = useState('http://localhost:8000/api/tweets')
 
+    axios.defaults.headers.common['X-CSRFToken'] = getCookie('csrftoken')
     
     useEffect( async()=>{
         await fetchTweetData(urlsForTweets);
@@ -104,12 +106,9 @@ function App(props){
     return (
 
         <div className='container'>
-           {console.log(Cookies.get())}
             <Userview data={tweets?tweets:data} onClick={{handleLikeClick, handleDislikeClick, handleCommetsClick}} likecolor={{likeColor, dislikeColor}} returnId={returnId}/>
         </div>
         
     )
 }
-
-
 export default App;

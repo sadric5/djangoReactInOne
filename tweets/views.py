@@ -6,11 +6,12 @@ from .serializers import TweetSerializer, CommentSerializer, LikeSerializer
 from rest_framework.response import Response
 import json
 from django.contrib.auth.models import User
+from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_protect, ensure_csrf_cookie
 # Create your views here.
 
 
-# @ensure_csrf_cookie
+# @method_decorator(ensure_csrf_cookie, name='dispatch')
 class ListTwests(generics.ListCreateAPIView):
 
     queryset = Tweets.objects.all()
@@ -32,7 +33,6 @@ class ListLike(generics.ListAPIView):
     serializer_class = LikeSerializer
 
 
-# @csrf_protect
 class LikeDetails(generics.RetrieveUpdateDestroyAPIView):
     queryset = TweetsLike.objects.all()
     serializer_class = LikeSerializer
