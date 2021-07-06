@@ -1,6 +1,7 @@
 from django.contrib import admin
-from .models import Tweets, CommentTweets, TweetsLike
+from .models import *
 # Register your models here.
 admin.site.register(Tweets)
 admin.site.register(CommentTweets)
 admin.site.register(TweetsLike)
+admin.site.register(UsersLikeDislike)
