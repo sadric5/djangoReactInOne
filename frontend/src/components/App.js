@@ -7,13 +7,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Userview from './UserView'
 import axios from 'axios'
 import getCookie from './csrfCookis'
+import NewtTweetButton from './heaaderButton'
+import CreateTweetForm from './form'
 
 
 
 function App(props){
 
    
-    
+    const [controlNewTweet, setControlNewTweet] = useState(false)
     const [tweets, setTweets] = useState([])
 
     const [like, setLike] = useState(false)
@@ -106,6 +108,8 @@ function App(props){
     return (
 
         <div className='container'>
+            <NewtTweetButton/>
+            <CreateTweetForm/>
             <Userview data={tweets?tweets:data} onClick={{handleLikeClick, handleDislikeClick, handleCommetsClick}} likecolor={{likeColor, dislikeColor}} returnId={returnId}/>
         </div>
         
