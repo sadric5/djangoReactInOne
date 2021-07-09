@@ -4,7 +4,9 @@ from rest_framework.views import APIView
 from .models import Tweets, CommentTweets, TweetsLike
 from .serializers import *
 from rest_framework.response import Response
+from django.views.decorators.csrf import csrf_exempt
 import json
+from django.http import HttpResponse
 from rest_framework.views import APIView
 from rest_framework import status
 from django.contrib.auth.models import User, AnonymousUser
@@ -80,6 +82,7 @@ class LikeDetails(APIView):
 
 
 class ListCommets(generics.ListCreateAPIView):
+
     queryset = CommentTweets.objects.all()
     serializer_class = CommentSerializer
 
@@ -91,3 +94,9 @@ class CommentDetails(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = CommentSerializer
 
     authentication_classes = [authentication.SessionAuthentication]
+
+
+@csrf_exempt
+def home(request):
+    print(request.GET)
+    return HttpResponse("Hi Miller !")

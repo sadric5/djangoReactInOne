@@ -1,8 +1,11 @@
 import React from 'react'
 
-const NewTweetButton = ()=>{
+const NewTweetButton = (props)=>{
     return (
-        <button className='text-primary'>New Tweet</button>
+        <div className='container'>
+            {console.log(props)}
+            <button className='text-primary' onClick={()=>props.onClick.handleNewTweetControleur()}>New Tweet</button>
+        </div>
     )
 }
 

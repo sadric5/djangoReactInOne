@@ -15,7 +15,7 @@ import CreateTweetForm from './form'
 function App(props){
 
    
-    const [controlNewTweet, setControlNewTweet] = useState(false)
+    const [controlNewTweet, setControlNewTweet] = useState(true)
     const [tweets, setTweets] = useState([])
 
     const [like, setLike] = useState(false)
@@ -105,11 +105,15 @@ function App(props){
         setCommentsClick(!commentsClick)
     }
 
+    const handleNewTweetControleur = ()=>{
+        console.log("Hello")
+        setControlNewTweet(!controlNewTweet)
+    }
     return (
 
         <div className='container'>
-            <NewtTweetButton/>
-            <CreateTweetForm/>
+            <NewtTweetButton onClick={{handleNewTweetControleur}}/>
+            {controlNewTweet?<CreateTweetForm/>:null}
             <Userview data={tweets?tweets:data} onClick={{handleLikeClick, handleDislikeClick, handleCommetsClick}} likecolor={{likeColor, dislikeColor}} returnId={returnId}/>
         </div>
         
