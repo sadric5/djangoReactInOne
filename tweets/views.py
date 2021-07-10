@@ -96,7 +96,7 @@ class CommentDetails(generics.RetrieveUpdateDestroyAPIView):
     authentication_classes = [authentication.SessionAuthentication]
 
 
-@csrf_exempt
+# @csrf_exempt
 def home(request):
-    print(request.GET)
+    print(request.POST)
     return HttpResponse("Hi Miller !")

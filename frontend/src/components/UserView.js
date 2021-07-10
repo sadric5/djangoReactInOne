@@ -7,10 +7,10 @@ import Comments from './displayCommet'
 const Userview = (props)=>{
 
     return (
-        <div className='container'>
+        <div className=''>
             {
                 props.data.map(data =>(
-                    <div className='card text-center m-3 my-5' key={data.id}>
+                    <div className='card text-center my-5' key={data.id}>
 
                         <div className=' card-body bg-light'>
                             <p className='text-center'>{data.content}</p>

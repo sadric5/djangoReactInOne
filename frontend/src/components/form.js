@@ -22,14 +22,13 @@ const csrftoken = getCookie('csrftoken');
 
 const CreateTweetForm = (props)=>{
     return (
-        <form action="api/home/" method="get">
+        <form>
           <div className="mb-3">
             <label htmlFor="exampleFormControlTextarea" className="form-label">Your tweet</label>
-            <textarea className="form-control" id="exampleFormControlTextarea" rows="3"></textarea>
-            <input type='text' value={csrftoken}/>
+            <textarea className="form-control" id="exampleFormControlTextarea" rows="3" onChange={(e)=>props.onChange.handleChange(e)}></textarea>
           </div>
           <div className="mb-3">
-            <button type='submit' className='m-2'>Tweet</button>
+            <button type='submit' name='csrftoken' className='m-2'>Tweet</button>
           </div>
         </form>
     )

@@ -16,6 +16,9 @@ function App(props){
 
    
     const [controlNewTweet, setControlNewTweet] = useState(true)
+
+    const [newTweet, setNewTweet] = useState('sadric')
+
     const [tweets, setTweets] = useState([])
 
     const [like, setLike] = useState(false)
@@ -101,6 +104,7 @@ function App(props){
     updateLike('http://localhost:8000/api/like/',id, dislike)
     }
 
+    // Create a new Tweets
     const handleCommetsClick = ()=>{
         setCommentsClick(!commentsClick)
     }
@@ -109,11 +113,17 @@ function App(props){
         console.log("Hello")
         setControlNewTweet(!controlNewTweet)
     }
+    const handleChange = (ev)=>{
+        setNewTweet(ev.target.value)
+    }
     return (
 
         <div className='container'>
-            <NewtTweetButton onClick={{handleNewTweetControleur}}/>
-            {controlNewTweet?<CreateTweetForm/>:null}
+            {console.log(newTweet)}
+            <NewtTweetButton onClick={{handleNewTweetControleur, handleChange}}/>
+            {controlNewTweet?
+                <CreateTweetForm onChange={{handleChange}}/>
+                :null}
             <Userview data={tweets?tweets:data} onClick={{handleLikeClick, handleDislikeClick, handleCommetsClick}} likecolor={{likeColor, dislikeColor}} returnId={returnId}/>
         </div>
         
