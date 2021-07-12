@@ -116,6 +116,10 @@ function App(props){
     const handleChange = (ev)=>{
         setNewTweet(ev.target.value)
     }
+
+    const handleOnSubmit = ()=>{
+        
+    }
     return (
 
         <div className='container'>

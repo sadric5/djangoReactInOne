@@ -6,6 +6,14 @@ from django.core.exceptions import ValidationError
 # Create your models here.
 
 
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    profile = models.ImageField()
+
+    def __str__(self):
+        return self.user.username
+
+
 def valide_like(value):
     if value < 0:
         raise ValidationError('The value shoud be positive integer')
