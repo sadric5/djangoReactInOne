@@ -1,6 +1,8 @@
 
 import React, {useState, useEffect} from 'react'
 import Cookies from 'js-cookie'
+import { IoSend } from "react-icons/io";
+
 
 // import ReactDOM, {render} from 'react-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';

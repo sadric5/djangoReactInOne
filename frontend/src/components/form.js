@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react'
+import { IoMdSend } from "react-icons/io";
 
 function getCookie(name) {
   let cookieValue = null;
@@ -28,7 +29,7 @@ const CreateTweetForm = (props)=>{
             <textarea className="form-control" id="exampleFormControlTextarea" rows="3" onChange={(e)=>props.onChange.handleChange(e)}></textarea>
           </div>
           <div className="mb-3">
-            <button type='submit' name='csrftoken' className='m-2'>Tweet</button>
+            <button type='submit' name='csrftoken' className='m-2'><IoMdSend/></button>
           </div>
         </form>
     )
