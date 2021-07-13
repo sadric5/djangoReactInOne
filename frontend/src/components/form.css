@@ -13,3 +13,10 @@ body {
   outline: none;
   resize: none;
 }
+.subm {
+  border: none;
+}
+
+.mybnt {
+  margin-bottom: 0px;
+}
