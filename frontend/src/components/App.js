@@ -16,10 +16,13 @@ import CreateTweetForm from './form'
 
 function App(props){
 
+    const [showComment, setShowComment] = useState(false)
    
     const [controlNewTweet, setControlNewTweet] = useState(true)
 
     const [newTweet, setNewTweet] = useState('sadric')
+
+    const [newTweetCreate, setNewTweetCreate] = useState(false)
 
     const [tweets, setTweets] = useState([])
 
@@ -106,31 +109,57 @@ function App(props){
     updateLike('http://localhost:8000/api/like/',id, dislike)
     }
 
+    // show comment or not
+    const showCommentHandler = ()=>{
+        // console.log(showComment)
+        setShowComment(!showComment);
+    }
     // Create a new Tweets
     const handleCommetsClick = ()=>{
         setCommentsClick(!commentsClick)
     }
 
     const handleNewTweetControleur = ()=>{
-        console.log("Hello")
         setControlNewTweet(!controlNewTweet)
     }
     const handleChange = (ev)=>{
         setNewTweet(ev.target.value)
     }
 
-    const handleOnSubmit = ()=>{
-        
+
+    const handleOnSubmit = async (ev)=>{
+        try{
+            let response = await axios.post('http://localhost:8000/api/tweets/', {'content':newTweet, 'author':1})
+            console.log(response)
+        }catch(er){
+            console.log(er.request)
+        }
+
+        // axios.post('http://localhost:8000/api/tweets/', {'content':newTweet, 'author':1})
+        // .then(response=>{
+        //     console.log(response);
+        //   })
+        //   .catch(error=>{
+        //     console.log(error.request);
+        //   });
+        ev.preventDefault();
+
     }
+    // console.log(showComment)
     return (
 
         <div className='container'>
-            {console.log(newTweet)}
             <NewtTweetButton onClick={{handleNewTweetControleur, handleChange}}/>
             {controlNewTweet?
-                <CreateTweetForm onChange={{handleChange}}/>
+                <CreateTweetForm onChange={{handleChange, handleOnSubmit}}/>
                 :null}
-            <Userview data={tweets?tweets:data} onClick={{handleLikeClick, handleDislikeClick, handleCommetsClick}} likecolor={{likeColor, dislikeColor}} returnId={returnId}/>
+            <Userview
+                data={tweets?tweets:data}
+                onClick={{handleLikeClick, handleDislikeClick, handleCommetsClick, showCommentHandler}}
+                likecolor={{likeColor, dislikeColor}}
+                returnId={returnId}
+                showOrNot={showComment}
+                />
         </div>
         
     )

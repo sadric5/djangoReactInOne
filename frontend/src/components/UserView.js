@@ -30,7 +30,7 @@ const Userview = (props)=>{
 
                                 <li className='nav-item mx-5'>
                                     <div className='text-muted mx-5'>
-                                    <button className='btn'><BsFillChatDotsFill/></button>
+                                    <button className='btn' onClick={()=>props.onClick.showCommentHandler()}><BsFillChatDotsFill/></button>
                                     </div>
                                 </li>
 
@@ -46,9 +46,15 @@ const Userview = (props)=>{
                             </ul>
 
                             {/* Comments */}
-                            {}
                             <div className='text-center'>
-                                <Comments value={data.comment}/>
+                                {data.id==28
+                                    ?<Comments
+                                        value={data.comment}
+                                        showOrNot={props.showOrNot}
+                                        tweetId={data.id}
+                                    />
+                                    :''
+                                    }    
                             </div>
                         </div>
                         </div>
