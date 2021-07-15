@@ -15,7 +15,8 @@ import CreateTweetForm from './form'
 
 
 function App(props){
-
+    const [tweetId, setTweetId] = useState()
+    
     const [showComment, setShowComment] = useState(false)
    
     const [controlNewTweet, setControlNewTweet] = useState(true)
@@ -110,8 +111,8 @@ function App(props){
     }
 
     // show comment or not
-    const showCommentHandler = ()=>{
-        // console.log(showComment)
+    const showCommentHandler = (id)=>{
+        setTweetId(id)
         setShowComment(!showComment);
     }
     // Create a new Tweets
@@ -158,7 +159,7 @@ function App(props){
                 onClick={{handleLikeClick, handleDislikeClick, handleCommetsClick, showCommentHandler}}
                 likecolor={{likeColor, dislikeColor}}
                 returnId={returnId}
-                showOrNot={showComment}
+                showOrNot={{'showComment':showComment, 'tweetId':tweetId}}
                 />
         </div>
         

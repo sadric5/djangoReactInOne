@@ -1,11 +1,13 @@
 
 import React, {useState, useEffect} from 'react'
+import {CreateCommentForm} from './form'
 
 
 const Comments = (props)=>{
     if(props.showOrNot){
         return (
             <div className='container bg-secondary'>
+                <CreateCommentForm/>
                 <div className='text-primary text-uppercase ms-0'>Comments :<br/> <br/></div>
                 {
                     props.value.map(item =>(
