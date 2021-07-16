@@ -32,7 +32,7 @@ const CreateTweetForm = (props)=>{
 
               <div className='col-11 mr-0 pr-0'>
                 <label htmlFor="exampleFormControlTextarea" className='container-fluid m-0 p-0'>
-                  <textarea className="form-control mystyle textarea" id="exampleFormControlTextarea" rows="6" onChange={(e)=>props.onChange.handleChange(e)}></textarea>
+                  <textarea className="form-control mystyle textarea commentForn" id="exampleFormControlTextarea" rows="6" onChange={(e)=>props.onChange.handleChange(e)}></textarea>
                 </label>
               </div>
  
@@ -50,14 +50,14 @@ const CreateTweetForm = (props)=>{
 // Commet Form
 const CreateCommentForm = (props)=>{
   return (
-      <form className='myform' onSubmit={(e)=>props.onChange.handleOnSubmit(e)}>
+      <form className='myform py-3' onSubmit={(e)=>props.onChange.handleOnSubmit(e)}>
         <div className="mb-3">
 
           <div className='row'>
 
             <div className='col-11 mr-0 pr-0'>
               <label htmlFor="exampleFormControlTextarea" className='container-fluid m-0 p-0'>
-                <textarea className="form-control mystyle textarea" id="exampleFormControlTextarea" rows="4" onChange={(e)=>props.onChange.handleChange(e)}></textarea>
+                <textarea className="form-control mystyle textarea commentForn" id="exampleFormControlTextarea" rows="4" onChange={(e)=>props.onChange.handleChange(e)}></textarea>
               </label>
             </div>
 
