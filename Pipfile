@@ -15,6 +15,7 @@ Django = "==3.2.4"
 django-cors-headers = "*"
 uwsgi = "*"
 pillow = "*"
+django-crispy-forms = "*"
 
 [dev-packages]
 
