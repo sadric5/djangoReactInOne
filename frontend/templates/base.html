@@ -32,7 +32,22 @@
             
         </header>
         <div class='container'>
-            {% block content%}{% endblock%}
+            <div class="row">
+                <div class='container col-8'>
+                    {% block content%}{% endblock%}
+                </div>
+                <div class='container col-2'>
+                    <h1>Side Bar</h1>
+                    <p>This is my side bar</p>
+                    <p>Your can shop some cool Amazom products</p>
+                    <br>
+                    <h4>
+                        <a href="https://github.com/sadric5" class='githubLink'>GitHub <i class="bi bi-github myColor"></i> </a>
+                    </h4>
+                    <h4>Discord <i class="bi bi-discord myColor"></i></h4>
+
+                    {% block sidebar%}{% endblock%}
+                </div>
         </div>
         
       
