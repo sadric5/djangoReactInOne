@@ -24,8 +24,9 @@ class AllUser(generics.ListCreateAPIView):
 
 
 class ListTwests(generics.ListCreateAPIView):
-
-    queryset = Tweets.objects.all()
+    def get_queryset(self):
+        print(self.request.user)
+        return Tweets.objects.all()
     serializer_class = TweetSerializer
 
     authentication_classes = [authentication.SessionAuthentication]

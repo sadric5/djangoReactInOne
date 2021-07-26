@@ -6,12 +6,10 @@
     {% load crispy_forms_tags %}
 
     <div class="container-sm sm col-6">
-        <h2>Login</h2>
+        <h2>Logout</h2>
         <form method="post">
             {% csrf_token%}
-            {{form|crispy }}
-            <input type='hidden' name='myNext' value="{% url 'lolo'%}">
-            <button type="submit" class='btn my-2 bg-secondary'>Log In</button>
+            <!-- <button type="submit" class='btn my-2 bg-secondary'>Log In</button> -->
         </form>
     </div> 
 
