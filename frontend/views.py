@@ -5,7 +5,7 @@ from django.http import HttpResponse
 # Create your views here.
 
 
-@login_required(login_url='login/', redirect_field_name='myNext')
+@login_required(login_url='login/', redirect_field_name='next')
 def index(request):
     return render(request, 'frontend/index.html')
 
