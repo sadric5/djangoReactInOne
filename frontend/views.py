@@ -11,5 +11,5 @@ def index(request):
 
 
 @login_required(login_url='/login', redirect_field_name='next')
-def prifile(request):
+def profile(request):
     return render(request, template_name='profile.html')
