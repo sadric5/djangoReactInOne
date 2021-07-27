@@ -11,7 +11,7 @@
             {% csrf_token%}
             {{form|crispy }}
             <button type="submit" class='btn my-2 bg-secondary'>Log In</button>
-            <input type="hidden" name="next" value="{% url next %}">
+            <input type="hidden" name="next" value="{{next}}">
             <input type="hidden" name="myNext" value="{% url 'lolo'%  }">
             <!-- <input type='' name='myNext' value="{% url 'lolo'%}" class='form-control my-2'> -->
         </form>

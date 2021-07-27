@@ -1,0 +1,13 @@
+{% extends 'base.html'%}
+
+
+{% block content%}
+
+    {% load crispy_forms_tags %}
+
+    <div class="container-sm sm col-6">
+        <h4>You're successfully lougout </h4>
+        <p><a href="{% url 'login' %}">Login Again</a></p>
+    </div> 
+
+{% endblock%}
